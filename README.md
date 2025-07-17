@@ -15,3 +15,5 @@ This is a mini backend project to register users and login to their accounts.
 - Mongodb
 ## How to run
 Open terminal and run "node .\server.js". Open "http://localhost:3000/" in browser to view the app.
+## Screenshots
+![Home Page](https://github.com/naskar-akash/Mini-Backend-Project/issues/1#issue-3240121992)
