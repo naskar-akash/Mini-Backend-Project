@@ -17,4 +17,7 @@ This is a mini backend project to register users and login to their accounts.
 Open terminal and run "node .\server.js". Open "http://localhost:3000/" in browser to view the app.
 ## Screenshots
 ![Home Page](https://github.com/naskar-akash/Mini-Backend-Project/issues/1#issue-3240121992)
+
 ![Login Page](https://github.com/naskar-akash/Mini-Backend-Project/issues/3#issue-3240134031)
+
+![Profile Page](https://github.com/naskar-akash/Mini-Backend-Project/issues/4#issue-3240139823)
