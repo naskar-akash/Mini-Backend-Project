@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const userModel = require("./models/user");
 const postModel = require("./models/post");
+const path = require("path")
 const jwt = require("jsonwebtoken");
+const upload = require("./config/multerconfig")
 const app = express();
 const port = 3000;
 
@@ -20,7 +22,9 @@ mongoose
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname,"public")))
 app.use(cookieParser());
+
 
 //Middleware for protected routing
 const isLogged = (req, res, next) => {
@@ -34,6 +38,10 @@ const isLogged = (req, res, next) => {
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("/profile/upload", (req, res) => {
+  res.render("profileupload");
 });
 
 app.get("/login", (req, res) => {
@@ -92,6 +100,13 @@ app.post("/register", async (req, res) => {
       res.send("registered!");
     });
   });
+});
+
+app.post("/upload", isLogged, upload.single("image"), async (req, res) => {
+  let user = await userModel.findOne({email: req.user.email})
+  user.profilepic = req.file.filename;
+  await user.save();
+  res.redirect("/profile")
 });
 
 app.post("/login", async (req, res) => {

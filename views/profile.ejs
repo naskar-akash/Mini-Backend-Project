@@ -15,10 +15,15 @@
           >Logout</a
         >
       </div>
+      <div class="flex items-start gap-3">
+      <div class="w-10 h-10 rounded-md overflow-hidden">
+        <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="">
+      </div>
       <h3 class="text-3xl">
         <span class="font-light">Welcome </span> <%= user.username %> 👋
       </h3>
-      <h5 class="mb-5">You can create a new post</h5>
+      </div>
+      <h5 class="mb-5 mt-3">You can create a new post</h5>
       <form action="/posts" method="post">
         <textarea
           placeholder="What's on your mind?"
